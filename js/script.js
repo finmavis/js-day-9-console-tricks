@@ -83,3 +83,12 @@ const data = [{name: 'BAM', age: 10}, {name: 'Ala', age: 20}];
 console.log("========== Table ==========");
 console.log("===== console.table('YOUR DATA') =====");
 console.table(data);
+console.log("\n");
+
+console.time("Fetching Data");
+fetch("https://api.github.com/users/finmavis")
+    .then(data => data.json())
+    .then(data => {
+        console.log(data);
+        console.timeEnd("Fetching Data");
+    });
